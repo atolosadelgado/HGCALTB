@@ -106000,21 +106000,67 @@
       <auxiliary auxtype="poscut" auxunit="mm" auxvalue="1"/>
       <auxiliary auxtype="pcut" auxunit="mm" auxvalue="1"/>
     </auxiliary>
-    <auxiliary auxtype="Region" auxvalue="HGCalEEAbsorbersRegion0xe480840">
-	      <auxiliary auxtype="volume" auxvalue="HGCalEEPbAbsorber10xe473ad0"/>
-	      <auxiliary auxtype="volume" auxvalue="HGCalEEPbAbsorber20xe4889a0"/>
-	      <auxiliary auxtype="volume" auxvalue="HGCalEEPbAbsorber30xe4891e0"/>
-	      <auxiliary auxtype="volume" auxvalue="HGCalEEPbAbsorber40xe489a20"/>
-	      <auxiliary auxtype="volume" auxvalue="HGCalEEPbAbsorber50xe4a42c0"/>
-	      <auxiliary auxtype="volume" auxvalue="HGCalEEPbAbsorber60xe4a4b00"/>
-	      <auxiliary auxtype="volume" auxvalue="HGCalEEPbAbsorber70xe4a5340"/>
-	      <auxiliary auxtype="volume" auxvalue="HGCalEEPbAbsorber80xe4a5b80"/>
-	      <auxiliary auxtype="volume" auxvalue="HGCalEEPbAbsorber90xe4be420"/>
-	      <auxiliary auxtype="volume" auxvalue="HGCalEEPbAbsorber100xe4bec60"/>
-	      <auxiliary auxtype="volume" auxvalue="HGCalEEPbAbsorber110xe4bf4a0"/>
-	      <auxiliary auxtype="volume" auxvalue="HGCalEEPbAbsorber120xe4bfd90"/>
-	      <auxiliary auxtype="volume" auxvalue="HGCalEEPbAbsorber130xe4da630"/>
-	      <auxiliary auxtype="volume" auxvalue="HGCalEEPbAbsorber140xe4daf20"/>
+  <!-- Region for HGCal EE Absorbers -->
+<auxiliary auxtype="Region" auxvalue="HGCalEEAbsorbersRegion">
+  <auxiliary auxtype="volume" auxvalue="HGCalEEPbAbsorber10xe473ad0"/>
+  <auxiliary auxtype="volume" auxvalue="HGCalEEPbAbsorber20xe4889a0"/>
+  <auxiliary auxtype="volume" auxvalue="HGCalEEPbAbsorber30xe4891e0"/>
+  <auxiliary auxtype="volume" auxvalue="HGCalEEPbAbsorber40xe489a20"/>
+  <auxiliary auxtype="volume" auxvalue="HGCalEEPbAbsorber50xe4a42c0"/>
+  <auxiliary auxtype="volume" auxvalue="HGCalEEPbAbsorber60xe4a4b00"/>
+  <auxiliary auxtype="volume" auxvalue="HGCalEEPbAbsorber70xe4a5340"/>
+  <auxiliary auxtype="volume" auxvalue="HGCalEEPbAbsorber80xe4a5b80"/>
+  <auxiliary auxtype="volume" auxvalue="HGCalEEPbAbsorber90xe4be420"/>
+  <auxiliary auxtype="volume" auxvalue="HGCalEEPbAbsorber100xe4bec60"/>
+  <auxiliary auxtype="volume" auxvalue="HGCalEEPbAbsorber110xe4bf4a0"/>
+  <auxiliary auxtype="volume" auxvalue="HGCalEEPbAbsorber120xe4bfd90"/>
+  <auxiliary auxtype="volume" auxvalue="HGCalEEPbAbsorber130xe4da630"/>
+  <auxiliary auxtype="volume" auxvalue="HGCalEEPbAbsorber140xe4daf20"/>
+  <auxiliary auxtype="gamcut" auxunit="mm" auxvalue="2."/>
+  <auxiliary auxtype="ecut" auxunit="mm" auxvalue="2."/>
+  <auxiliary auxtype="poscut" auxunit="mm" auxvalue="2."/>
+  <auxiliary auxtype="pcut" auxunit="mm" auxvalue="2."/>
+</auxiliary>
+
+<auxiliary auxtype="Region" auxvalue="HGCalEEFeAbsorbersRegion">
+  <auxiliary auxtype="volume" auxvalue="HGCalEEFeAbsorber10xe479180"/>
+  <auxiliary auxtype="volume" auxvalue="HGCalEEFeAbsorber20xe4792c0"/>
+  <auxiliary auxtype="volume" auxvalue="HGCalEEFeAbsorber30xe490d20"/>
+  <auxiliary auxtype="volume" auxvalue="HGCalEEFeAbsorber40xe490e60"/>
+  <auxiliary auxtype="volume" auxvalue="HGCalEEFeAbsorber50xe4910e0"/>
+  <auxiliary auxtype="volume" auxvalue="HGCalEEFeAbsorber60xe491220"/>
+  <auxiliary auxtype="volume" auxvalue="HGCalEEFeAbsorber70xe4914a0"/>
+  <auxiliary auxtype="volume" auxvalue="HGCalEEFeAbsorber80xe4915e0"/>
+  <auxiliary auxtype="volume" auxvalue="HGCalEEFeAbsorber90xe491860"/>
+  <auxiliary auxtype="volume" auxvalue="HGCalEEFeAbsorber100xe4919a0"/>
+  <auxiliary auxtype="volume" auxvalue="HGCalEEFeAbsorber110xe491c20"/>
+  <auxiliary auxtype="volume" auxvalue="HGCalEEFeAbsorber120xe491d60"/>
+  <auxiliary auxtype="volume" auxvalue="HGCalEEFeAbsorber130xe4ba000"/>
+  <auxiliary auxtype="volume" auxvalue="HGCalEEFeAbsorber140xe4ba140"/>
+  <auxiliary auxtype="volume" auxvalue="HGCalEEFeAbsorber150xe4ba3c0"/>
+  <auxiliary auxtype="volume" auxvalue="HGCalEEFeAbsorber160xe4ba500"/>
+  <auxiliary auxtype="volume" auxvalue="HGCalEEFeAbsorber170xe4ba780"/>
+  <auxiliary auxtype="volume" auxvalue="HGCalEEFeAbsorber180xe4ba8c0"/>
+  <auxiliary auxtype="volume" auxvalue="HGCalEEFeAbsorber190xe4bab40"/>
+  <auxiliary auxtype="volume" auxvalue="HGCalEEFeAbsorber200xe4bac80"/>
+  <auxiliary auxtype="volume" auxvalue="HGCalEEFeAbsorber210xe4baf00"/>
+  <auxiliary auxtype="volume" auxvalue="HGCalEEFeAbsorber220xe4bb040"/>
+  <auxiliary auxtype="volume" auxvalue="HGCalEEFeAbsorber230xe4bb540"/>
+  <auxiliary auxtype="volume" auxvalue="HGCalEEFeAbsorber240xe4bb680"/>
+  <auxiliary auxtype="volume" auxvalue="HGCalEEFeAbsorber250xe4bb900"/>
+  <auxiliary auxtype="volume" auxvalue="HGCalEEFeAbsorber260xe4bba40"/>
+  <auxiliary auxtype="volume" auxvalue="HGCalEEFeAbsorber270xe4bbf40"/>
+  <auxiliary auxtype="volume" auxvalue="HGCalEEFeAbsorber280xe4e00a0"/>
+  <auxiliary auxtype="gamcut" auxunit="cm" auxvalue="0.01"/>
+  <auxiliary auxtype="ecut" auxunit="cm" auxvalue="0.01"/>
+  <auxiliary auxtype="poscut" auxunit="cm" auxvalue="0.01"/>
+  <auxiliary auxtype="pcut" auxunit="cm" auxvalue="0.01"/>
+  
+</auxiliary>
+
+
+<!-- Region for HGCal HEF Absorbers -->
+<auxiliary auxtype="Region" auxvalue="HGCalHEFAbsorbersRegion">
   <auxiliary auxtype="volume" auxvalue="HGCalHEFeAbsorber10xe4eafd0"/>
   <auxiliary auxtype="volume" auxvalue="HGCalHEFeAbsorber20xe50a160"/>
   <auxiliary auxtype="volume" auxvalue="HGCalHEFeAbsorber30xe50b290"/>
@@ -106026,12 +106072,21 @@
   <auxiliary auxtype="volume" auxvalue="HGCalHEFeAbsorber90xe547ef0"/>
   <auxiliary auxtype="volume" auxvalue="HGCalHEFeAbsorber100xe558420"/>
   <auxiliary auxtype="volume" auxvalue="HGCalHEFeAbsorber110xe5588f0"/>
+  <auxiliary auxtype="gamcut" auxunit="cm" auxvalue="2."/>
+  <auxiliary auxtype="ecut" auxunit="cm" auxvalue="2."/>
+  <auxiliary auxtype="poscut" auxunit="cm" auxvalue="2."/>
+  <auxiliary auxtype="pcut" auxunit="cm" auxvalue="2."/>
+</auxiliary>
+
+<!-- Region for HGCal AH Absorber -->
+<auxiliary auxtype="Region" auxvalue="HGCalAHAbsorbersRegion">
   <auxiliary auxtype="volume" auxvalue="HGCalAHcalAbsorber10xe3e6370"/>
-	      <auxiliary auxtype="gamcut" auxunit="cm" auxvalue="2."/>
-	      <auxiliary auxtype="ecut" auxunit="cm" auxvalue="2."/>
-	      <auxiliary auxtype="poscut" auxunit="cm" auxvalue="2."/>
-	      <auxiliary auxtype="pcut" auxunit="cm" auxvalue="2."/>
-    </auxiliary>
+  <auxiliary auxtype="gamcut" auxunit="cm" auxvalue="2."/>
+  <auxiliary auxtype="ecut" auxunit="cm" auxvalue="2."/>
+  <auxiliary auxtype="poscut" auxunit="cm" auxvalue="2."/>
+  <auxiliary auxtype="pcut" auxunit="cm" auxvalue="2."/>
+</auxiliary>
+
   </userinfo>
 
   <setup name="Default" version="1.0">
