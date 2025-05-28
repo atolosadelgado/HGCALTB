@@ -18,7 +18,7 @@
 class HGCALTBDetConstruction : public G4VUserDetectorConstruction
 {
   public:
-    HGCALTBDetConstruction();
+    HGCALTBDetConstruction(G4String gdml_input_file);
     ~HGCALTBDetConstruction();
     // virtual methods from base class
     //
@@ -26,6 +26,7 @@ class HGCALTBDetConstruction : public G4VUserDetectorConstruction
     virtual void ConstructSDandField();
 
   private:
+    G4String _gdml_input_file = {""};
     void DefineVisAttributes();
 #  if G4VERSION_NUMBER > 1100
     void CheckOverlaps(G4VPhysicalVolume* PhysVol);
