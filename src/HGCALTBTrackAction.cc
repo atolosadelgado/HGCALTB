@@ -20,6 +20,8 @@
 #include "G4SystemOfUnits.hh"
 #include "G4ThreeVector.hh"
 #include "G4Track.hh"
+#include "HGCALTBEventInformation.hh"
+#include "G4RunManager.hh"
 
 // Includers from std
 //
@@ -35,7 +37,23 @@ HGCALTBTrackAction::~HGCALTBTrackAction() {}
 
 // PreUserTrackingAction definition
 //
-void HGCALTBTrackAction::PreUserTrackingAction(const G4Track* /*aTrack*/) {}
+void HGCALTBTrackAction::PreUserTrackingAction(const G4Track* track)
+{
+    if (track->GetParentID() > 0) { // It's a secondary
+
+        HGCALTBEventInformation::SecondaryInfo particle_info;
+        particle_info.pdgID = track->GetDefinition()->GetPDGEncoding();
+        particle_info.energy = track->GetKineticEnergy();
+        // particle_info.birthVolume = track->GetLogicalVolumeAtVertex();
+        particle_info.trackID = track->GetTrackID();
+        particle_info.exited = false; // default
+
+        HGCALTBEventInformation* event_info = static_cast<HGCALTBEventInformation*>(
+          G4RunManager::GetRunManager()->GetCurrentEvent()->GetUserInformation()
+        );
+        event_info->RegisterSecondary(particle_info);
+    }
+}
 
 // PostUserTrackingAction definition
 //

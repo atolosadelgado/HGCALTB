@@ -31,6 +31,8 @@
 #include "G4ParticleGun.hh"
 #include "G4SDManager.hh"
 
+#include "HGCALTBEventInformation.hh"
+
 // Includers from std
 //
 #include <numeric>
@@ -71,6 +73,11 @@ void HGCALTBEventAction::BeginOfEventAction(const G4Event*)
   for (auto& value : fAHCALLayerSignals) {
     value = 0.;
   }
+
+  G4VUserEventInformation * new_info = new HGCALTBEventInformation();
+  G4EventManager::GetEventManager()->GetNonconstCurrentEvent()->SetUserInformation( new_info );
+
+
 }
 
 // GetCEEHitsCollection method()
@@ -302,6 +309,17 @@ void HGCALTBEventAction::EndOfEventAction(const G4Event* event)
   analysisManager->FillNtupleDColumn(7, fPrimaryGenAction->GetParticleGun()->GetParticleEnergy());
   analysisManager->FillNtupleIColumn(8, CEEIntLayer);
   analysisManager->FillNtupleIColumn(9, CHEIntLayer);
+
+  HGCALTBEventInformation* event_info = static_cast<HGCALTBEventInformation*>(
+          G4RunManager::GetRunManager()->GetCurrentEvent()->GetUserInformation()
+        );
+  auto secondaries_v = event_info->GetSecondaries();
+  G4int nsecondaries = secondaries_v.size();
+  analysisManager->FillNtupleIColumn(13, nsecondaries );
+  auto HasExited = []( HGCALTBEventInformation::SecondaryInfo & s){return s.exited;};
+  G4int nexited = std::count_if( secondaries_v.begin(), secondaries_v.end(), HasExited );
+  analysisManager->FillNtupleIColumn(14, nexited );
+
   analysisManager->AddNtupleRow();
 }
 

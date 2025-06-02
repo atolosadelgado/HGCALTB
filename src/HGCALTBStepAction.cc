@@ -10,6 +10,8 @@
 // Includers from project files
 //
 #include "HGCALTBStepAction.hh"
+#include "HGCALTBEventInformation.hh"
+#include "G4RunManager.hh"
 
 // Constructor and de-constructor
 //
@@ -34,6 +36,13 @@ void HGCALTBStepAction::UserSteppingAction(const G4Step* aStep)
   // Add edep at each step
   //
   fEventAction->Addedep(aStep->GetTotalEnergyDeposit());
+  if (aStep->GetPostStepPoint()->GetStepStatus() == fGeomBoundary) {
+
+    HGCALTBEventInformation* event_info = static_cast<HGCALTBEventInformation*>(
+          G4RunManager::GetRunManager()->GetCurrentEvent()->GetUserInformation()
+        );
+        event_info->MarkSecondaryAsExited( aStep->GetTrack()->GetTrackID() );
+  }
 }
 
 void HGCALTBStepAction::PrintCEEInfo(const G4Step* aStep)

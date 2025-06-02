@@ -54,6 +54,8 @@ HGCALTBRunAction::HGCALTBRunAction(HGCALTBEventAction* eventAction, G4String fil
   analysisManager->CreateNtupleDColumn("CEESignals", fEventAction->GetCEESignals());
   analysisManager->CreateNtupleDColumn("CHESignals", fEventAction->GetCHESignals());
   analysisManager->CreateNtupleDColumn("AHCALSignals", fEventAction->GetAHCALSignals());
+  analysisManager->CreateNtupleIColumn("nsecondaries");
+  analysisManager->CreateNtupleIColumn("nsecondaries_exited");
   analysisManager->FinishNtuple();
 }
 
