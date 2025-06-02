@@ -69,6 +69,7 @@ int main(int argc, char** argv)
   G4int nThreads = G4Threading::G4GetNumberOfCores();
 #endif
 
+  G4String gdml_input_file("");
   // CLI parsing
   for (G4int i = 1; i < argc; i = i + 2) {
     if (G4String(argv[i]) == "-m")
@@ -79,6 +80,8 @@ int main(int argc, char** argv)
       custom_pl = argv[i + 1];
     else if (G4String(argv[i]) == "-f")
       custom_filename = argv[i + 1];
+    else if (G4String(argv[i]) == "-g")
+      gdml_input_file = argv[i + 1];
 #ifdef G4MULTITHREADED
     else if (G4String(argv[i]) == "-t") {
       nThreads = G4UIcommand::ConvertToInt(argv[i + 1]);
@@ -93,6 +96,7 @@ int main(int argc, char** argv)
       return 1;
     }
   }
+
 
   // Activate interaction mode if no macro card is provided and define UI
   // session
@@ -123,7 +127,7 @@ int main(int argc, char** argv)
   auto physicsList = physListFactory->GetReferencePhysList(custom_pl);
   runManager->SetUserInitialization(physicsList);
 
-  runManager->SetUserInitialization(new HGCALTBDetConstruction());
+  runManager->SetUserInitialization(new HGCALTBDetConstruction(gdml_input_file));
 
   runManager->SetUserInitialization(new HGCALTBActInitialization(custom_filename));
 
