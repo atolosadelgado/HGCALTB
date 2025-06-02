@@ -38,11 +38,11 @@ void HGCALTBActInitialization::Build() const
   auto PrimaryGenAction = new HGCALTBPrimaryGenAction();
   auto EventAction = new HGCALTBEventAction(PrimaryGenAction);
   SetUserAction(PrimaryGenAction);
- /* SetUserAction(new HGCALTBStepAction(EventAction));
+  SetUserAction(new HGCALTBStepAction(EventAction));
   SetUserAction(new HGCALTBRunAction(EventAction, fFileName));
   SetUserAction(EventAction);
   SetUserAction(new HGCALTBTrackAction(EventAction));
-*/
+
   }
 
 //**************************************************
