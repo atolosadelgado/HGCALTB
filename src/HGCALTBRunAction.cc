@@ -34,7 +34,8 @@ HGCALTBRunAction::HGCALTBRunAction(HGCALTBEventAction* eventAction, G4String fil
   // Instantiate analysis manager
   auto analysisManager = G4AnalysisManager::Instance();  // using ROOT
   analysisManager->SetVerboseLevel(1);
-  analysisManager->SetNtupleMerging(1);
+  if( G4RunManager::RMType::sequentialRM != G4RunManager::GetRunManager()->GetRunManagerType())
+    analysisManager->SetNtupleMerging(1);
 
 #if G4VERSION_NUMBER > 1050 && G4VERSION_NUMBER < 1060
   analysisManager->SetNtupleRowWise(false);
@@ -54,8 +55,14 @@ HGCALTBRunAction::HGCALTBRunAction(HGCALTBEventAction* eventAction, G4String fil
   analysisManager->CreateNtupleDColumn("CEESignals", fEventAction->GetCEESignals());
   analysisManager->CreateNtupleDColumn("CHESignals", fEventAction->GetCHESignals());
   analysisManager->CreateNtupleDColumn("AHCALSignals", fEventAction->GetAHCALSignals());
-  analysisManager->CreateNtupleIColumn("nsecondaries");
-  analysisManager->CreateNtupleIColumn("nsecondaries_exited");
+  // analysisManager->CreateNtupleIColumn("nsecondaries");
+  // analysisManager->CreateNtupleIColumn("nsecondaries_exited");
+  analysisManager->CreateNtupleIColumn("numElectrons");
+  analysisManager->CreateNtupleIColumn("numElectronsExited");
+  analysisManager->CreateNtupleIColumn("numPositrons");
+  analysisManager->CreateNtupleIColumn("numPositronsExited");
+  analysisManager->CreateNtupleIColumn("numGammas");
+  analysisManager->CreateNtupleIColumn("numGammasExited");
   analysisManager->FinishNtuple();
 }
 

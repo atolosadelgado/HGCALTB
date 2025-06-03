@@ -314,11 +314,35 @@ void HGCALTBEventAction::EndOfEventAction(const G4Event* event)
           G4RunManager::GetRunManager()->GetCurrentEvent()->GetUserInformation()
         );
   auto secondaries_v = event_info->GetSecondaries();
-  G4int nsecondaries = secondaries_v.size();
-  analysisManager->FillNtupleIColumn(13, nsecondaries );
-  auto HasExited = []( HGCALTBEventInformation::SecondaryInfo & s){return s.exited;};
-  G4int nexited = std::count_if( secondaries_v.begin(), secondaries_v.end(), HasExited );
-  analysisManager->FillNtupleIColumn(14, nexited );
+  // G4int nsecondaries = secondaries_v.size();
+  // analysisManager->FillNtupleIColumn(13, nsecondaries );
+  // auto HasExited = []( HGCALTBEventInformation::SecondaryInfo & s){return s.exited;};
+  // G4int nexited = std::count_if( secondaries_v.begin(), secondaries_v.end(), HasExited );
+  // analysisManager->FillNtupleIColumn(14, nexited );
+
+  int numElectrons(0);
+  int numElectronsExited(0);
+  int numPositrons(0);
+  int numPositronsExited(0);
+  int numGammas(0);
+  int numGammasExited(0);
+  auto my_counting_fcn = [&](HGCALTBEventInformation::SecondaryInfo & s)->void {
+    numElectrons       += int(s.pdgID == 11);
+    numElectronsExited += int(s.pdgID == 11 && s.exited);
+
+    numPositrons       += int(s.pdgID == -11);
+    numPositronsExited += int(s.pdgID == -11 && s.exited);
+
+    numGammas          += int(s.pdgID == 22);
+    numGammasExited    += int(s.pdgID == 22 && s.exited);
+  };
+  std::for_each( secondaries_v.begin(), secondaries_v.end(), my_counting_fcn);
+  analysisManager->FillNtupleIColumn(13, numElectrons );
+  analysisManager->FillNtupleIColumn(14, numElectronsExited );
+  analysisManager->FillNtupleIColumn(15, numPositrons );
+  analysisManager->FillNtupleIColumn(16, numPositronsExited );
+  analysisManager->FillNtupleIColumn(17, numGammas );
+  analysisManager->FillNtupleIColumn(18, numGammasExited );
 
   analysisManager->AddNtupleRow();
 }
