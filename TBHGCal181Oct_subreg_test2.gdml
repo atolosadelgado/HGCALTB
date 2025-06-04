@@ -106097,7 +106097,7 @@
       <auxiliary auxtype="volume" auxvalue="HGCalEECuPCB0xe473e40"/>
       <auxiliary auxtype="volume" auxvalue="HGCalEECuKapton0xe488160"/>
       <auxiliary auxtype="volume" auxvalue="HGCalEEKapton0xe488210"/>
-      <auxiliary auxtype="gamcut" auxunit="mm" auxvalue="3"/>
+      <auxiliary auxtype="gamcut" auxunit="mm" auxvalue="1"/>
       <auxiliary auxtype="ecut" auxunit="mm" auxvalue="0.3"/>
       <auxiliary auxtype="poscut" auxunit="mm" auxvalue="3"/>
       <auxiliary auxtype="pcut" auxunit="mm" auxvalue="3"/>
