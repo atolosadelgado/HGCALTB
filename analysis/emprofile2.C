@@ -4,7 +4,7 @@
 /// Statistics calculator using Welford’s algorithm.
 /// Usage:
 ///   - Call `add(x)` for each new data point.
-///   - Call `GetMean()` or `Getstddev()` to retrieve statistics.
+///   - Call `GetMean()` or `GetMeanError()` to retrieve statistics.
 struct OnlineStats {
     int count = {0};
     double mean = {0.0};
@@ -23,6 +23,9 @@ struct OnlineStats {
     double GetVariance() const { return (count > 1) ? M2 / (count - 1) : 0.0; }
 
     double Getstddev() const { return std::sqrt(GetVariance()); }
+    
+    double GetMeanError() const { return Getstddev()/std::sqrt(count); }
+    
 };
 
 
@@ -73,7 +76,7 @@ void emprofile2(const string inFileName = "HGCALTBout_Run0.root", const string E
   TGraphErrors grEmProfile;
   for (std::size_t i = 0; i < emprofile.size(); i++) {
     grEmProfile.AddPoint( i, emprofile.at(i).GetMean());
-    grEmProfile.SetPointError(i , 0.0 /*x-error*/,  emprofile.at(i).Getstddev() );
+    grEmProfile.SetPointError(i , 0.0 /*x-error*/,  emprofile.at(i).GetMeanError() );
   }
   grEmProfile.SetTitle("EmProfile");
   grEmProfile.SetName("EmProfile");
@@ -81,7 +84,7 @@ void emprofile2(const string inFileName = "HGCALTBout_Run0.root", const string E
   TGraphErrors grFullEmProfile;
   for (std::size_t i = 0; i < fullemprofile.size(); i++) {
     grFullEmProfile.AddPoint( i , fullemprofile.at(i).GetMean() );
-    grFullEmProfile.SetPointError( i , 0.0 /*x-error*/,  fullemprofile.at(i).Getstddev() );
+    grFullEmProfile.SetPointError( i , 0.0 /*x-error*/,  fullemprofile.at(i).GetMeanError() );
   }
   grFullEmProfile.SetTitle("FullEmProfile");
   grFullEmProfile.SetName("FullEmProfile");
